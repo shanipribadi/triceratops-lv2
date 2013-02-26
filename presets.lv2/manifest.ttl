@@ -1,0 +1,212 @@
+@prefix atom: <http://lv2plug.in/ns/ext/atom#> .
+@prefix lv2: <http://lv2plug.in/ns/lv2core#> .
+@prefix pset: <http://lv2plug.in/ns/ext/presets#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix state: <http://lv2plug.in/ns/ext/state#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix doap: <http://usefulinc.com/ns/doap#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+<wowow.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <wowow.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+		
+<128-growlie.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <128-growlie.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<dominator.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <dominator.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<stereo_mod.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <stereo_mod.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<stereo_mod_2.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <stereo_mod_2.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<grossriser.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <grossriser.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<pad_2.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <pad_2.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<pad_0.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <pad_0.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<double_square_mod.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <double_square_mod.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<res_mod.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <res_mod.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<operatic.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <operatic.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<aceeeed.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <aceeeed.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<analogue_single_string.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <analogue_single_string.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<bass_1.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <bass_1.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<creamy_unison.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <creamy_unison.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<dual_sync_pad.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <dual_sync_pad.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<flimsy_pw.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <flimsy_pw.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<lazer_bass.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <lazer_bass.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<lost_in_space.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <lost_in_space.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<melancholy_fairytale.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <melancholy_fairytale.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<nice_square_mod.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <nice_square_mod.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<scenery_from_the_80s.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <scenery_from_the_80s.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<sevenths.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <sevenths.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<sh101_esque.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <sh101_esque.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<sync_bass_1.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <sync_bass_1.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<sync_lead.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <sync_lead.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<sync_legato.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <sync_legato.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<test_square.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <test_square.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<valves.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <valves.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<arpie.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <arpie.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<brass.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <brass.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<fm_twangy.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <fm_twangy.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<nasty_square.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <nasty_square.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<lazer_harp_2.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <lazer_harp_2.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+<glassy.ttl>
+	a pset:Preset ;
+	rdfs:seeAlso <glassy.ttl> ;
+	lv2:appliesTo <http://nickbailey.co.nr/triceratops> .
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
