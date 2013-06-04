@@ -10,7 +10,7 @@ lfo_gui::lfo_gui (int port_number,string top_colour, string bottom_colour)
 	gui_retrig = new toggle();
 	gui_retrig->top_colour.set(top_colour);
 	gui_retrig->bottom_colour.set(bottom_colour);
-	gui_retrig->set_label("RETRIG");	
+	gui_retrig->set_label("Retrig");	
 	gui_retrig->port_number = port_number;
 	gui_retrig->pos_mode = 1;
 	++port_number;
@@ -22,7 +22,7 @@ lfo_gui::lfo_gui (int port_number,string top_colour, string bottom_colour)
 	gui_speed->set_max(600);
 	gui_speed->set_value(120);
 	gui_speed->set_snap(true);
-	gui_speed->set_label("SPEED");
+	gui_speed->set_label("Speed");
 	gui_speed->pos_mode = 2;
 	gui_speed->port_number = port_number;
 	++port_number;
@@ -30,7 +30,7 @@ lfo_gui::lfo_gui (int port_number,string top_colour, string bottom_colour)
 	gui_wave = new wave_widget();
 	gui_wave->top_colour.set(top_colour);
 	gui_wave->bottom_colour.set(bottom_colour);
-	gui_wave->set_label("WAVE");
+	gui_wave->set_label("Wave");
 	gui_wave->set_lfo_mode(true);
 	gui_wave->port_number = port_number;
 	++port_number;
@@ -59,7 +59,7 @@ lfo_gui::lfo_gui (int port_number,string top_colour, string bottom_colour)
 	gui_cutoff = new fader();
 	gui_cutoff->top_colour.set(top_colour);
 	gui_cutoff->bottom_colour.set(bottom_colour);
-	gui_cutoff->set_label("CUTOFF");
+	gui_cutoff->set_label("Cutoff");
 	gui_cutoff->set_min(0);
 	gui_cutoff->set_max(0.25);
 	gui_cutoff->set_value(0);
@@ -69,7 +69,7 @@ lfo_gui::lfo_gui (int port_number,string top_colour, string bottom_colour)
 	gui_route1 = new fader();
 	gui_route1->top_colour.set(top_colour);
 	gui_route1->bottom_colour.set(bottom_colour);
-	gui_route1->set_label("ROUTE 1");
+	gui_route1->set_label("Route 1");
 	gui_route1->port_number = port_number;
 	++port_number;
 	gui_route1->route_port_number = port_number;
@@ -78,7 +78,7 @@ lfo_gui::lfo_gui (int port_number,string top_colour, string bottom_colour)
 	gui_route2 = new fader();
 	gui_route2->top_colour.set(top_colour);
 	gui_route2->bottom_colour.set(bottom_colour);
-	gui_route2->set_label("ROUTE 2");
+	gui_route2->set_label("Route 2");
 	gui_route2->port_number = port_number;
 	++port_number;
 	gui_route2->route_port_number = port_number;
@@ -92,13 +92,16 @@ lfo_gui::lfo_gui (int port_number,string top_colour, string bottom_colour)
 
 	tab->add(*gui_wave);
 
-	//spacer* spacer1 = new spacer();
-	//spacer1->set_size_request(40,70);
-	//tab->add(*spacer1);
+	spacer* spacer1 = new spacer();
+	spacer1->top_colour.set(top_colour);
+	spacer1->bottom_colour.set(bottom_colour);
+	spacer1->set_size_request(40,70);
+	spacer1->pos_mode = 0;
 
 	tab->add(*gui_dco1_pitch);
 	tab->add(*gui_dco2_pitch);
 	tab->add(*gui_dco3_pitch);
+	tab->add(*spacer1);
 	tab->add(*gui_cutoff);
 	tab->add(*gui_route1);
 	tab->add(*gui_route2);

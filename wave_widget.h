@@ -36,10 +36,10 @@ class wave_widget : public Gtk::DrawingArea
 	int port_number;
 	int last_waveform;
 	bool lfo_mode;
+	int val;
 
   protected:
 
-	int val;
 	string label;    
 
 	virtual bool on_expose_event(GdkEventExpose*);

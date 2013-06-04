@@ -59,8 +59,17 @@ bool wave_widget::on_button_press_event(GdkEventButton* event)
 bool wave_widget::on_button_release_event(GdkEventButton* event)
 {
 
-		val += 1;
-		if (val > last_waveform) { val = 0; }
+		if (event->button == 1)
+		{
+			--val;
+			if (val < 0) { val = last_waveform; }
+		}
+
+		if (event->button == 3)
+		{
+			++val;
+			if (val > last_waveform) { val = 0; }
+		}
 
 	float new_value = (float)val;
 
@@ -145,14 +154,11 @@ Cairo::LinearGradient::create( 0,0,0,allocation.get_height() );
 
     // ------------------------------------------------------------------
 
-
-    // draw horizontal black line at frequency height
-
     // draw text label
     cr->select_font_face("Bitstream Vera Sans", Cairo::FONT_SLANT_NORMAL,
     Cairo::FONT_WEIGHT_NORMAL);
-    cr->set_font_size(width/5);
-    cr->set_source_rgba(0.9,0.9,0.9,1.0);
+    cr->set_font_size(width/4.5);
+    cr->set_source_rgba(0.9,0.9,0.9,0.8);
     Cairo::FontOptions font_options;
     font_options.set_hint_style(Cairo::HINT_STYLE_NONE);
     font_options.set_hint_metrics(Cairo::HINT_METRICS_OFF);
@@ -161,7 +167,7 @@ Cairo::LinearGradient::create( 0,0,0,allocation.get_height() );
     int x_font_centre = (width/2) - ((width/5) * (label.length()/3.5));
 
     cr->set_font_options(font_options);
-    cr->move_to(x_font_centre,height/6);
+    cr->move_to(x_font_centre,height/7);
     cr->show_text(label);
     cr->move_to(x_font_centre,allocation.get_height()  - height_offset );
 
@@ -246,7 +252,8 @@ Cairo::LinearGradient::create(width/4, 0,width-(width/4), 0 );
     x_font_centre = (width/2) - ((width/5) * (slider_value.str().length()/3.5));
     cr->move_to(x_font_centre,allocation.get_height() - (height_offset/3) );
 
-    cr->set_source_rgba(0.9,0.9,0.9,1.0);
+    cr->set_source_rgba(0.9,0.9,0.9,0.8);
+    cr->set_font_size(width/5.5);
     cr->show_text(slider_value.str());
 
   }

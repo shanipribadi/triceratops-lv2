@@ -11,7 +11,7 @@ modifier_gui::modifier_gui(int port_number,string top_colour, string bottom_colo
 	gui_modifier_dirt = new fader();
 	gui_modifier_dirt ->top_colour.set(top_colour);
 	gui_modifier_dirt ->bottom_colour.set(bottom_colour);
-	gui_modifier_dirt->set_label("DIRT");
+	gui_modifier_dirt->set_label("Dirt");
 	gui_modifier_dirt->set_min(0);
 	gui_modifier_dirt->set_max(1);
 	gui_modifier_dirt->set_value(0);
@@ -21,7 +21,7 @@ modifier_gui::modifier_gui(int port_number,string top_colour, string bottom_colo
 	gui_modifier_stereo_mode= new toggle();
 	gui_modifier_stereo_mode->top_colour.set(top_colour);
 	gui_modifier_stereo_mode->bottom_colour.set(bottom_colour);
-	gui_modifier_stereo_mode->set_label("STEREO");
+	gui_modifier_stereo_mode->set_label("Stereo");
 	gui_modifier_stereo_mode->set_value(1);
 	gui_modifier_stereo_mode->port_number = port_number;
 	gui_modifier_stereo_mode->pos_mode = 2;
@@ -30,7 +30,7 @@ modifier_gui::modifier_gui(int port_number,string top_colour, string bottom_colo
 	gui_modifier_ring= new toggle();
 	gui_modifier_ring->top_colour.set(top_colour);
 	gui_modifier_ring->bottom_colour.set(bottom_colour);
-	gui_modifier_ring->set_label("RING");
+	gui_modifier_ring->set_label("Ring");
 	gui_modifier_ring->set_value(0);
 	gui_modifier_ring->port_number = port_number;
 	gui_modifier_ring->pos_mode = 1;

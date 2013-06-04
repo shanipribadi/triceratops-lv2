@@ -1,21 +1,7 @@
 
-
 /*
   LV2 triceratops - Analogue style subtractive synth plugin
-  
-  Copyright 2012 Nick S Bailey <tb303@gmx.com>
-  
-  Permission to use, copy, modify, and/or distribute this software for any
-  purpose with or without fee is hereby granted, provided that the above
-  copyright notice and this permission notice appear in all copies.
-
-  THIS SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
-  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
-  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
-  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
-  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
-  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
-  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+  Nick S Bailey <tb303@gmx.com>
 */
 
 #include <string>
@@ -28,16 +14,9 @@
 #include "triceratops.hpp"
 
 // these are our custom widget includes
-#include "dco_gui.h"
-#include "unison_gui.h"
-#include "lfo_gui.h"
 #include "logo_gui.h"
-#include "adsr_gui.h"
-#include "adsr_lfo_gui.h"
-#include "amp_gui.h"
-#include "echo_gui.h"
-#include "reverb_gui.h"
-#include "modifier_gui.h"
+#include "preset_select.h"
+#include "preset_save_widget.h"
 
 // core spec include
 #include "lv2/lv2plug.in/ns/lv2core/lv2.h"
@@ -47,15 +26,17 @@
 
 using namespace std;
 
-
-
 typedef struct {
-	fader* spider;
 	char *bundle_path;  
+
+	preset_select* preset_list;
+	preset_save* preset_save_name;
+	Gtk::Button* preset_save_button;
 
 	Gtk::HBox* container;
 	Gtk::VBox* vbox1;
 	Gtk::VBox* vbox2;
+	Gtk::VBox* vbox3;
 	Gtk::Notebook* dco_tab;
 
 	dco_gui* dco1;
@@ -87,13 +68,11 @@ typedef struct {
 	reverb_gui* reverb;
 	modifier_gui* modifier;
 
-
 } triceratopsGUI;
 
 static GtkWidget* make_gui(triceratopsGUI *self) {
 
 	// load configuration file
-
 	// fall back values if no configure file is found
 
 	bool rounded_gui_edges = false;
@@ -182,6 +161,19 @@ static GtkWidget* make_gui(triceratopsGUI *self) {
 
 	self->vbox1 = new Gtk::VBox();
 	self->vbox2 = new Gtk::VBox();
+	self->vbox3 = new Gtk::VBox();
+
+	self->preset_list = new preset_select();
+	self->preset_list->set_size_request(100,260);
+
+	self->preset_save_name = new preset_save();
+
+	self->vbox3 = new Gtk::VBox();
+	self->vbox3->add(*self->preset_list);
+	//self->vbox3->add(*self->preset_save_name);
+	// self->vbox3->add(*self->preset_save_button);
+
+	self->container->add(*self->vbox3);
 
 	Gtk::Combo test;
 
@@ -290,6 +282,7 @@ static GtkWidget* make_gui(triceratopsGUI *self) {
 
 	self->vbox2->add(*self->amp_tab);
 
+
 	//------
 
 	self->echo = new echo_gui(TRICERATOPS_FX_ECHO_ACTIVE,top_colour.to_string(), bottom_colour.to_string());
@@ -386,6 +379,29 @@ static LV2UI_Handle instantiate(const struct _LV2UI_Descriptor * descriptor,
 	self->echo->set_controller(controller,write_function);
 	self->modifier->set_controller(controller,write_function); 
 	self->reverb->set_controller(controller,write_function);
+
+	self->preset_list->dco1 = self->dco1;
+	self->preset_list->dco2 = self->dco2;
+	self->preset_list->dco3 = self->dco3;
+	self->preset_list->unison = self->unison;
+
+	self->preset_list->lfo1 = self->lfo1;
+	self->preset_list->lfo2 = self->lfo2;
+	self->preset_list->lfo3 = self->lfo3;
+
+	self->preset_list->adsr_amp = self->adsr_amp;
+	self->preset_list->adsr_filter = self->adsr_filter;
+	self->preset_list->adsr_lfo = self->adsr_lfo;
+
+	self->preset_list->amp_and_filter = self->amp_and_filter;
+	self->preset_list->echo = self->echo;
+	self->preset_list->reverb = self->reverb;
+	self->preset_list->modifier = self->modifier;
+
+	self->preset_list->controller =  controller;
+	self->preset_list->write_function = write_function;
+
+	self->preset_list->init();
 
     return (LV2UI_Handle)self;
 }
@@ -561,11 +577,6 @@ static void port_event(LV2UI_Handle ui,
 		case TRICERATOPS_ADSR3_LFO3_AMOUNT:
 			self->adsr_lfo->gui_lfo3->set_value( val );
 			break;
-
-
-
-
-
 
 		// oscillator one
 

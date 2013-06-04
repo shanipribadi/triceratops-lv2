@@ -329,8 +329,8 @@ Cairo::RadialGradient::create( (allocation.get_width()/2) + sin_y, (allocation.g
     // draw text label
     cr->select_font_face("Bitstream Vera Sans", Cairo::FONT_SLANT_NORMAL,
      Cairo::FONT_WEIGHT_NORMAL);
-    cr->set_font_size(width/5);
-    cr->set_source_rgba(0.9,0.9,0.9,1.0);
+    cr->set_font_size(width/4.5);
+    cr->set_source_rgba(0.9,0.9,0.9,0.8);
     Cairo::FontOptions font_options;
     font_options.set_hint_style(Cairo::HINT_STYLE_NONE);
     font_options.set_hint_metrics(Cairo::HINT_METRICS_OFF);
@@ -339,7 +339,7 @@ Cairo::RadialGradient::create( (allocation.get_width()/2) + sin_y, (allocation.g
     int x_font_centre = (width/2) - ((width/5) * (label.length()/3.5));
 
     cr->set_font_options(font_options);
-    cr->move_to(x_font_centre,height/3);
+    cr->move_to(x_font_centre,height/3.5);
     cr->show_text(label);
     cr->move_to(x_font_centre,allocation.get_height()  - (height_offset/3) );
 

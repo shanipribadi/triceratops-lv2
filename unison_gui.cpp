@@ -11,7 +11,7 @@ unison_gui::unison_gui(int port_number,string top_colour, string bottom_colour)
 	gui_active = new toggle();
 	gui_active->top_colour.set(top_colour);
 	gui_active->bottom_colour.set(bottom_colour);
-	gui_active->set_label("ACTIVE");
+	gui_active->set_label("Active");
 	gui_active->port_number = port_number;
 	gui_active->pos_mode = 1;
 	++port_number;

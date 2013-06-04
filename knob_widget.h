@@ -40,11 +40,12 @@ class knob : public Gtk::DrawingArea
 
     bool invert;
     int port_number;
+    float knob_value,value,min,max;
 
   protected:
 
 	// stores frequency we're currently at.
-	float knob_value,value,min,max;
+
 	bool drag;
 	bool snap;
 	int rounded;

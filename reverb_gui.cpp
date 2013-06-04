@@ -11,7 +11,7 @@ reverb_gui::reverb_gui(int port_number,string top_colour, string bottom_colour)
 	gui_active = new toggle();
 	gui_active->top_colour.set(top_colour);
 	gui_active->bottom_colour.set(bottom_colour);
-	gui_active->set_label("ACTIVE");
+	gui_active->set_label("Active");
 	gui_active->pos_mode=1;
 	gui_active->port_number = port_number;
 	++port_number;
@@ -19,7 +19,7 @@ reverb_gui::reverb_gui(int port_number,string top_colour, string bottom_colour)
 	gui_decay = new fader();
 	gui_decay->top_colour.set(top_colour);
 	gui_decay->bottom_colour.set(bottom_colour);
-	gui_decay->set_label("DECAY");
+	gui_decay->set_label("Decay");
 	gui_decay->set_min(0);
 	gui_decay->set_max(15);
 	gui_decay->set_value(4);
@@ -30,7 +30,7 @@ reverb_gui::reverb_gui(int port_number,string top_colour, string bottom_colour)
 	gui_mix = new fader();
 	gui_mix->top_colour.set(top_colour);
 	gui_mix->bottom_colour.set(bottom_colour);
-	gui_mix->set_label("MIX");
+	gui_mix->set_label("Mix");
 	gui_mix->set_min(0);
 	gui_mix->set_max(0.8);
 	gui_mix->set_value(0.5);

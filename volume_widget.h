@@ -38,11 +38,12 @@ class volume : public Gtk::DrawingArea
     void set_max(float);
 
     int port_number;
+    float volume_value,value,min,max;
 
   protected:
 
 	// stores frequency we're currently at.
-	float volume_value,value,min,max;
+
 	bool drag;
 	int rounded;
 	string label;    

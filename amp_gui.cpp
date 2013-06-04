@@ -11,7 +11,7 @@ amp_gui::amp_gui(int port_number,string top_colour, string bottom_colour)
 	gui_volume = new volume();
 	gui_volume->top_colour.set(top_colour);
 	gui_volume->bottom_colour.set(bottom_colour);
-	gui_volume->set_label("VOLUME");
+	gui_volume->set_label("Volume");
 	gui_volume->set_min(0);
 	gui_volume->set_max(2);
 	gui_volume->set_value(1.5);
@@ -21,7 +21,7 @@ amp_gui::amp_gui(int port_number,string top_colour, string bottom_colour)
 	gui_tune = new fader();
 	gui_tune ->top_colour.set(top_colour);
 	gui_tune ->bottom_colour.set(bottom_colour);
-	gui_tune->set_label("TUNE");
+	gui_tune->set_label("Tune");
 	gui_tune->set_min(-7);
 	gui_tune->set_max(7);
 	gui_tune->set_value(0);
@@ -31,14 +31,14 @@ amp_gui::amp_gui(int port_number,string top_colour, string bottom_colour)
 	gui_drive = new knob();
 	gui_drive->top_colour.set(top_colour);
 	gui_drive->bottom_colour.set(bottom_colour);
-	gui_drive->set_label("DRIVE");
+	gui_drive->set_label("Drive");
 	gui_drive->port_number = port_number;
 	++port_number;
 
 	gui_filter_type = new filter_widget();
 	gui_filter_type ->top_colour.set(top_colour);
 	gui_filter_type ->bottom_colour.set(bottom_colour);
-	gui_filter_type->set_label("TYPE");
+	gui_filter_type->set_label("Type");
 	gui_filter_type->set_value(1);
 	gui_filter_type->port_number = port_number;
 	++port_number;
@@ -46,7 +46,7 @@ amp_gui::amp_gui(int port_number,string top_colour, string bottom_colour)
 	gui_cutoff = new fader();
 	gui_cutoff->top_colour.set(top_colour);
 	gui_cutoff->bottom_colour.set(bottom_colour);
-	gui_cutoff->set_label("CUTOFF");
+	gui_cutoff->set_label("Cutoff");
 	gui_cutoff->set_min(0.1);
 	gui_cutoff->set_max(0.88);
 	gui_cutoff->set_value(0);
@@ -58,7 +58,7 @@ amp_gui::amp_gui(int port_number,string top_colour, string bottom_colour)
 	gui_resonance = new fader();
 	gui_resonance->top_colour.set(top_colour);
 	gui_resonance->bottom_colour.set(bottom_colour);
-	gui_resonance->set_label("RES");
+	gui_resonance->set_label("Res");
 	gui_resonance->set_min(0);
 	gui_resonance->set_max(2);
 	gui_resonance->set_value(0);
@@ -70,7 +70,7 @@ amp_gui::amp_gui(int port_number,string top_colour, string bottom_colour)
 	gui_key_follow = new fader();
 	gui_key_follow->top_colour.set(top_colour);
 	gui_key_follow->bottom_colour.set(bottom_colour);
-	gui_key_follow->set_label("FOLLOW");
+	gui_key_follow->set_label("Follow");
 	gui_key_follow->port_number = port_number;
 	gui_key_follow->set_min(-1);
 	gui_key_follow->set_max(1);
@@ -80,7 +80,7 @@ amp_gui::amp_gui(int port_number,string top_colour, string bottom_colour)
 	gui_legato = new toggle();
 	gui_legato ->top_colour.set(top_colour);
 	gui_legato ->bottom_colour.set(bottom_colour);
-	gui_legato->set_label("LEGATO");
+	gui_legato->set_label("Legato");
 	gui_legato->pos_mode = 1;
 	gui_legato->port_number = port_number;
 	++port_number;
@@ -88,7 +88,7 @@ amp_gui::amp_gui(int port_number,string top_colour, string bottom_colour)
 	gui_sync = new toggle();
 	gui_sync->top_colour.set(top_colour);
 	gui_sync->bottom_colour.set(bottom_colour);
-	gui_sync->set_label("SYNC");
+	gui_sync->set_label("Sync");
 	gui_sync->pos_mode = 1;
 	gui_sync->port_number = port_number;
 	++port_number;
@@ -96,7 +96,7 @@ amp_gui::amp_gui(int port_number,string top_colour, string bottom_colour)
 	gui_warmth = new toggle();
 	gui_warmth->top_colour.set(top_colour);
 	gui_warmth->bottom_colour.set(bottom_colour);
-	gui_warmth->set_label("WARM");
+	gui_warmth->set_label("Warm");
 	gui_warmth->port_number = port_number;
 	++port_number;
 
@@ -111,7 +111,7 @@ amp_gui::amp_gui(int port_number,string top_colour, string bottom_colour)
 	gui_panic = new toggle();
 	gui_panic->top_colour.set(top_colour);
 	gui_panic->bottom_colour.set(bottom_colour);
-	gui_panic->set_label("PANIC");
+	gui_panic->set_label("Panic");
 	gui_panic->port_number = port_number;
 	++port_number;
 

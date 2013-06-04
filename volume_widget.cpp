@@ -241,7 +241,7 @@ Cairo::LinearGradient::create( 0,0,0,allocation.get_height() );
     // ------------------------------------------------------------------
     // draw outer level scale lines
 
-	cr->set_source_rgba(0.6,0.6,0.6,0.6);
+	cr->set_source_rgba(1.0,1.0,1.0,0.2);
 	cr->set_line_width(width/24);
 
 	for (float scale=-.05; scale<1; scale+=0.05 )
@@ -250,6 +250,8 @@ Cairo::LinearGradient::create( 0,0,0,allocation.get_height() );
 		float sin_y =  (allocation.get_width()/2.2) * (sin(((((1-scale)*0.75)-0.67)*2) * M_PI));
  		float cos_x2 =  (allocation.get_width()/2) * (cos(((((1-scale)*0.75)-0.67)*2) * M_PI));
 		float sin_y2 =  (allocation.get_width()/2) * (sin(((((1-scale)*0.75)-0.67)*2) * M_PI));
+
+		if (scale > 0.9-volume_value && volume_value != 0) { cr->set_source_rgba(1.0,1.0,1.0,0.7); }
 
 		cr->move_to( (allocation.get_width()/2) + cos_x, (allocation.get_height()/2) + sin_y);
 		cr->line_to( (allocation.get_width()/2) + cos_x2, (allocation.get_height()/2) + sin_y2);
@@ -283,7 +285,7 @@ Cairo::RadialGradient::create( (allocation.get_width()/2) + sin_y, (allocation.g
     cr->select_font_face("Bitstream Vera Sans", Cairo::FONT_SLANT_NORMAL,
      Cairo::FONT_WEIGHT_NORMAL);
     cr->set_font_size(width/8);
-    cr->set_source_rgba(0.9,0.9,0.9,1.0);
+    cr->set_source_rgba(0.9,0.9,0.9,0.8);
     Cairo::FontOptions font_options;
     font_options.set_hint_style(Cairo::HINT_STYLE_NONE);
     font_options.set_hint_metrics(Cairo::HINT_METRICS_OFF);
@@ -292,7 +294,7 @@ Cairo::RadialGradient::create( (allocation.get_width()/2) + sin_y, (allocation.g
     int x_font_centre = (width/2) - ((width/8) * (label.length()/3.5));
 
     cr->set_font_options(font_options);
-    cr->move_to(x_font_centre,height/6);
+    cr->move_to(x_font_centre,height/7);
     cr->show_text(label);
     cr->move_to(x_font_centre,allocation.get_height()  - (height_offset/3) );
 

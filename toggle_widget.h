@@ -37,10 +37,10 @@ class toggle : public Gtk::DrawingArea
 
     int port_number;
     int pos_mode;
+    int val;
 
   protected:
 
-	int val;
 	int rounded;
 	string label;    
     	float grad_top_colour;

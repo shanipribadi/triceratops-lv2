@@ -37,14 +37,15 @@ dco_gui::dco_gui(int port_number,string top_colour, string bottom_colour)
 	gui_wave = new wave_widget();
 	gui_wave->top_colour.set(top_colour);
 	gui_wave->bottom_colour.set(bottom_colour);
-	gui_wave->set_label("WAVE");
+	gui_wave->set_label("Wave");
 	gui_wave->port_number = port_number;
+	gui_wave->last_waveform = 3;
 	++port_number;
 
 	gui_octave = new knob();
 	gui_octave->top_colour.set(top_colour);
 	gui_octave->bottom_colour.set(bottom_colour);
-	gui_octave->set_label("OCTAVE");
+	gui_octave->set_label("Octave");
 	gui_octave->set_min(-5);
 	gui_octave->set_max(5);
 	gui_octave->set_value(0);
@@ -56,7 +57,7 @@ dco_gui::dco_gui(int port_number,string top_colour, string bottom_colour)
 	gui_detune = new fader();
 	gui_detune->top_colour.set(top_colour);
 	gui_detune->bottom_colour.set(bottom_colour);
-	gui_detune->set_label("DETUNE");
+	gui_detune->set_label("Detune");
 	gui_detune->set_min(-7);
 	gui_detune->set_max(7);
 	gui_detune->set_value(0);
@@ -66,7 +67,7 @@ dco_gui::dco_gui(int port_number,string top_colour, string bottom_colour)
 	gui_detune_centre = new toggle();
 	gui_detune_centre->top_colour.set(top_colour);
 	gui_detune_centre->bottom_colour.set(bottom_colour);
-	gui_detune_centre->set_label("CENTRE");
+	gui_detune_centre->set_label("Centre");
 	gui_detune_centre->port_number = port_number;
 	gui_detune_centre->pos_mode = 1;
 	++port_number;
@@ -74,7 +75,7 @@ dco_gui::dco_gui(int port_number,string top_colour, string bottom_colour)
 	gui_inertia = new knob();
 	gui_inertia->top_colour.set(top_colour);
 	gui_inertia->bottom_colour.set(bottom_colour);
-	gui_inertia->set_label("INERTIA");
+	gui_inertia->set_label("Inertia");
 	gui_inertia->set_min(0);
 	gui_inertia->set_max(1);
 	gui_inertia->set_value(0);
@@ -85,7 +86,7 @@ dco_gui::dco_gui(int port_number,string top_colour, string bottom_colour)
 	gui_pan = new knob();
 	gui_pan->top_colour.set(top_colour);
 	gui_pan->bottom_colour.set(bottom_colour);
-	gui_pan->set_label("PAN");
+	gui_pan->set_label("Pan");
 	gui_pan->set_min(0);
 	gui_pan->set_max(1);
 	gui_pan->set_value(0.5);

@@ -4,6 +4,7 @@
 #include "filter_widget.h"
 #include <cmath>
 #include <cairomm/context.h>
+#include "triceratops.hpp"
 
 #include <iostream>
 
@@ -22,9 +23,6 @@ filter_widget::filter_widget()
   
   // make the click events call the on_button_press_event function
   set_events (Gdk::BUTTON_PRESS_MASK | Gdk::BUTTON_RELEASE_MASK);
-
-  // make the click event do that function
-  // signal_button_press_event().connect( sigc::mem_fun(*this, &filter_widget::on_button_press_event) );
   
   set_size_request(40,140);
 }
@@ -52,8 +50,19 @@ bool filter_widget::on_button_press_event(GdkEventButton* event)
 bool filter_widget::on_button_release_event(GdkEventButton* event)
 {
 
-		val += 1;
-		if (val > 4) { val = 0; }
+
+
+		if (event->button == 1)
+		{
+			--val;
+			if (val < 0) { val = 4; }
+		}
+
+		if (event->button == 3)
+		{
+			++val;
+			if (val > 4) { val = 0; }
+		}
 
 	float new_value = val;
 
@@ -139,13 +148,12 @@ Cairo::LinearGradient::create( 0,0,0,allocation.get_height() );
     // ------------------------------------------------------------------
 
 
-    // draw horizontal black line at frequency height
 
     // draw text label
     cr->select_font_face("Bitstream Vera Sans", Cairo::FONT_SLANT_NORMAL,
     Cairo::FONT_WEIGHT_NORMAL);
-    cr->set_font_size(width/5);
-    cr->set_source_rgba(0.9,0.9,0.9,1.0);
+    cr->set_font_size(width/4.5);
+    cr->set_source_rgba(0.9,0.9,0.9,0.8);
     Cairo::FontOptions font_options;
     font_options.set_hint_style(Cairo::HINT_STYLE_NONE);
     font_options.set_hint_metrics(Cairo::HINT_METRICS_OFF);
@@ -154,7 +162,7 @@ Cairo::LinearGradient::create( 0,0,0,allocation.get_height() );
     int x_font_centre = (width/2) - ((width/5) * (label.length()/3.5));
 
     cr->set_font_options(font_options);
-    cr->move_to(x_font_centre,height/6);
+    cr->move_to(x_font_centre,height/7);
     cr->show_text(label);
     cr->move_to(x_font_centre,allocation.get_height()  - height_offset );
 
@@ -178,7 +186,7 @@ Cairo::LinearGradient::create(width/4, 0,width-(width/4), 0 );
     {
 
     	case 0:
-		slider_value.str("OFF");
+		slider_value.str("Off");
 		break;
     	case 1:
 		slider_value.str("LowPass");
@@ -212,7 +220,7 @@ Cairo::LinearGradient::create(width/4, 0,width-(width/4), 0 );
 		break;
 
     	case 3:
-		slider_value.str("Bandpass");
+		slider_value.str("Band");
 		wave_freq *= 2;
 		cr->move_to(0, allocation.get_height()/1.5);
 		cr->line_to((width/2) - (width/(wave_freq/1.2)), allocation.get_height()/1.5);
@@ -269,7 +277,8 @@ Cairo::LinearGradient::create(width/4, 0,width-(width/4), 0 );
     x_font_centre = (width/2) - ((width/5) * (slider_value.str().length()/3.5));
     cr->move_to(x_font_centre,allocation.get_height() - (height_offset/3) );
 
-    cr->set_source_rgba(0.9,0.9,0.9,1.0);
+    cr->set_source_rgba(0.9,0.9,0.9,0.8);
+    cr->set_font_size(width/5.5);
     cr->show_text(slider_value.str());
 
   }

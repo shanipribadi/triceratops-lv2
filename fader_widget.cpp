@@ -211,7 +211,17 @@ bool fader::on_button_release_event (GdkEventButton *event)
 		// convert mouse y to fader value
 		float pos_y = (height-y) / height;
 
-		if (pos_y > 1 && route_port_number != -1)
+		if (pos_y > 1 && route_port_number != -1 && event->button == 1)
+		{
+			route_number = (--route_number);
+			if (route_number < 0) route_number = 14;
+			show_route_dest();
+			float rn = route_number;
+			write_function( controller, route_port_number, sizeof(float), 0, (const void*)&rn);
+			draw_slider(-1,-1);
+		}
+
+		if (pos_y > 1 && route_port_number != -1 && event->button == 3)
 		{
 			route_number = (++route_number % route_max);
 			show_route_dest();
@@ -230,15 +240,15 @@ void fader::show_route_dest()
 	switch (route_number)
 	{	
 		case 0:	
-		label = "AMP";
+		label = "Amp";
 		break; 
 				
 		case 1:
-		label = "CUTOFF";
+		label = "Cutoff";
 		break;
 
 		case 2:
-		label = "RES";
+		label = "Res";
 		break;
 	
 		case 3:
@@ -266,27 +276,27 @@ void fader::show_route_dest()
 		break;
 	
 		case 9:
-		label = "PAN1";
+		label = "Pan1";
 		break;
 
 		case 10:
-		label = "PAN2";
+		label = "Pan2";
 		break;
 
 		case 11:
-		label = "PAN3";
+		label = "Pan3";
 		break;
 
 		case 12:
-		label = "LFO1-SPD";
+		label = "LFO1-Sp";
 		break;
 
 		case 13:
-		label = "LFO2-SPD";
+		label = "LFO2-Sp";
 		break;
 
 		case 14:
-		label = "LFO3-SPD";
+		label = "LFO3-Sp";
 		break;
 
 	}
@@ -450,9 +460,9 @@ Cairo::LinearGradient::create(width/4, freqPix,width-(width/4), freqPix );
     // draw horizontal black line at fader_value height
 
     cr->set_line_width(height/4);
-    cr->set_source_rgba(0.0,0.0,0.0,0.2);
-    cr->move_to(width/4, freqPix + height_offset);
-    cr->line_to(width-(width/4), freqPix + height_offset);
+    cr->set_source_rgba(0.0,0.0,0.0,0.3);
+    cr->move_to(width/4, freqPix +  (height_offset));
+    cr->line_to(width-(width/4), freqPix + (height_offset*1.1));
     cr->stroke();
     
     // draw horizontal blue line at fader_value height
@@ -465,8 +475,8 @@ Cairo::LinearGradient::create(width/4, freqPix,width-(width/4), freqPix );
     // draw text label
     cr->select_font_face("Bitstream Vera Sans", Cairo::FONT_SLANT_NORMAL,
      Cairo::FONT_WEIGHT_NORMAL);
-    cr->set_font_size(width/5);
-    cr->set_source_rgba(0.9,0.9,0.9,1.0);
+    cr->set_font_size(width/4.5);
+    cr->set_source_rgba(0.9,0.9,0.9,0.8);
     Cairo::FontOptions font_options;
     font_options.set_hint_style(Cairo::HINT_STYLE_NONE);
     font_options.set_hint_metrics(Cairo::HINT_METRICS_OFF);
@@ -475,7 +485,7 @@ Cairo::LinearGradient::create(width/4, freqPix,width-(width/4), freqPix );
     int x_font_centre = (width/2) - ((width/5) * (label.length()/3.5));
 
     cr->set_font_options(font_options);
-    cr->move_to(x_font_centre,height/6);
+    cr->move_to(x_font_centre,height/7);
     cr->show_text(label);
     cr->move_to(x_font_centre,allocation.get_height()  - (height_offset/3) );
 

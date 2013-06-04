@@ -7,7 +7,7 @@ from waflib.extras import autowaf as autowaf
 
 # Variables for 'waf dist'
 APPNAME = 'triceratops.lv2'
-VERSION = '0.1.4'
+VERSION = '0.1.6'
 
 # Mandatory variables
 top = '.'
@@ -89,7 +89,7 @@ def build(bld):
     # Build UI library
     obj = bld(features     = 'cxx cshlib',
               env          = penv,
-              source       = 'triceratops_gui.cpp fader_widget.cpp wave_widget.cpp filter_widget.cpp knob_widget.cpp volume_widget.cpp toggle_widget.cpp spacer_widget.cpp dco_gui.cpp lfo_gui.cpp adsr_gui.cpp adsr_lfo_gui.cpp amp_gui.cpp echo_gui.cpp reverb_gui.cpp modifier_gui.cpp unison_gui.cpp logo_gui.cpp round_rect.cpp',
+              source       = 'triceratops_gui.cpp fader_widget.cpp wave_widget.cpp filter_widget.cpp knob_widget.cpp volume_widget.cpp toggle_widget.cpp spacer_widget.cpp preset_select.cpp dco_gui.cpp lfo_gui.cpp adsr_gui.cpp adsr_lfo_gui.cpp amp_gui.cpp echo_gui.cpp reverb_gui.cpp modifier_gui.cpp unison_gui.cpp logo_gui.cpp round_rect.cpp preset_save_widget.cpp',
               name         = 'triceratops_gui',
               target       = '%s/triceratops_gui' % bundle,
               install_path = '${LV2DIR}/%s' % bundle,

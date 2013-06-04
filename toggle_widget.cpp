@@ -159,13 +159,11 @@ Cairo::LinearGradient::create( 0,0,0,allocation.get_height() );
     // ------------------------------------------------------------------
 
 
-    // draw horizontal black line at frequency height
-
     // draw text label
     cr->select_font_face("Bitstream Vera Sans", Cairo::FONT_SLANT_NORMAL,
      Cairo::FONT_WEIGHT_NORMAL);
-    cr->set_font_size(width/5);
-    cr->set_source_rgba(0.9,0.9,0.9,1.0);
+    cr->set_font_size(width/4.5);
+    cr->set_source_rgba(0.9,0.9,0.9,0.8);
     Cairo::FontOptions font_options;
     font_options.set_hint_style(Cairo::HINT_STYLE_NONE);
     font_options.set_hint_metrics(Cairo::HINT_METRICS_OFF);
@@ -174,7 +172,7 @@ Cairo::LinearGradient::create( 0,0,0,allocation.get_height() );
     int x_font_centre = (width/2) - ((width/5) * (label.length()/3.5));
 
     cr->set_font_options(font_options);
-    cr->move_to(x_font_centre,height/3);
+    cr->move_to(x_font_centre,height/3.5);
     cr->show_text(label);
     cr->move_to(x_font_centre,allocation.get_height()  - (height_offset/3) );
 
@@ -197,7 +195,7 @@ Cairo::LinearGradient::create(width/4, 0,width-(width/4), 0 );
     switch (val)
     {
     	case 0:
-		slider_value.str("OFF");
+		slider_value.str("Off");
 
 		cr->arc((allocation.get_width()/1.9), (allocation.get_height()/1.9), (allocation.get_width()/2.8), 0.0, 2 * M_PI);
 
@@ -234,7 +232,7 @@ Cairo::LinearGradient::create(width/4, 0,width-(width/4), 0 );
 
 		break;
     	case 1:
-		slider_value.str("ON");
+		slider_value.str("On");
 
 		cr->arc((allocation.get_width()/1.9), (allocation.get_height()/1.9), (allocation.get_width()/2.8), 0.0, 2 * M_PI);
 
@@ -274,7 +272,7 @@ Cairo::LinearGradient::create(width/4, 0,width-(width/4), 0 );
     x_font_centre = (width/2) - ((width/5) * (slider_value.str().length()/3.5));
     cr->move_to(x_font_centre,allocation.get_height() - (height_offset/1.5) );
 
-    cr->set_source_rgba(0.9,0.9,0.9,1.0);
+    cr->set_source_rgba(0.9,0.9,0.9,0.8);
     cr->show_text(slider_value.str());
 
   }

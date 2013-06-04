@@ -11,7 +11,7 @@ echo_gui::echo_gui(int port_number,string top_colour, string bottom_colour)
 	gui_active = new toggle();
 	gui_active->top_colour.set(top_colour);
 	gui_active->bottom_colour.set(bottom_colour);
-	gui_active->set_label("ACTIVE");
+	gui_active->set_label("Active");
 	gui_active->pos_mode = 1;
 	gui_active->port_number = port_number;
 	++port_number;
@@ -19,7 +19,7 @@ echo_gui::echo_gui(int port_number,string top_colour, string bottom_colour)
 	gui_speed = new knob();
 	gui_speed->top_colour.set(top_colour);
 	gui_speed->bottom_colour.set(bottom_colour);
-	gui_speed->set_label("SPEED");
+	gui_speed->set_label("Speed");
 	gui_speed->set_min(512);
 	gui_speed->set_max(65536);
 	gui_speed->set_value(4096);
@@ -30,7 +30,7 @@ echo_gui::echo_gui(int port_number,string top_colour, string bottom_colour)
 	gui_decay = new knob();
 	gui_decay->top_colour.set(top_colour);
 	gui_decay->bottom_colour.set(bottom_colour);
-	gui_decay->set_label("DECAY");
+	gui_decay->set_label("Decay");
 	gui_decay->pos_mode=2;
 	gui_decay->port_number = port_number;
 	++port_number;
@@ -38,7 +38,7 @@ echo_gui::echo_gui(int port_number,string top_colour, string bottom_colour)
 	gui_eq_low = new fader();
 	gui_eq_low->top_colour.set(top_colour);
 	gui_eq_low->bottom_colour.set(bottom_colour);
-	gui_eq_low->set_label("EQ-LOW");
+	gui_eq_low->set_label("EQ-Low");
 	gui_eq_low->set_min(0);
 	gui_eq_low->set_max(2);
 	gui_eq_low->set_value(1);
@@ -48,7 +48,7 @@ echo_gui::echo_gui(int port_number,string top_colour, string bottom_colour)
 	gui_eq_mid = new fader();
 	gui_eq_mid->top_colour.set(top_colour);
 	gui_eq_mid->bottom_colour.set(bottom_colour);
-	gui_eq_mid->set_label("EQ-MID");
+	gui_eq_mid->set_label("EQ-Mid");
 	gui_eq_mid->set_min(0);
 	gui_eq_mid->set_max(2);
 	gui_eq_mid->set_value(1);
@@ -58,7 +58,7 @@ echo_gui::echo_gui(int port_number,string top_colour, string bottom_colour)
 	gui_eq_high = new fader();
 	gui_eq_high->top_colour.set(top_colour);
 	gui_eq_high->bottom_colour.set(bottom_colour);
-	gui_eq_high->set_label("EQ-HI");
+	gui_eq_high->set_label("EQ-Hi");
 	gui_eq_high->set_min(0);
 	gui_eq_high->set_max(2);
 	gui_eq_high->set_value(1);

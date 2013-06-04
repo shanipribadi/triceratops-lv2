@@ -1,21 +1,22 @@
 
-// This is the header for our custom filter_widget.
+// This is the header for our custom preset_save.
 // We override the on_expose_event function so GTK calls into this class
-// to draw the filter_widget
+// to draw the preset_save
 
-#ifndef filterWIDGET
-#define filterWIDGET
+#ifndef preset_saveWIDGET
+#define preset_saveWIDGET
 
 #include <gtkmm/drawingarea.h>
-#include <gtkmm.h>
 #include <iostream>
+#include <string>
+#include <sstream>
 
 using namespace std;
 
 // LV2UI stuff
 #include "lv2/lv2plug.in/ns/extensions/ui/ui.h"
 
-class filter_widget : public Gtk::DrawingArea
+class preset_save : public Gtk::DrawingArea
 {
   public:
     
@@ -26,26 +27,28 @@ class filter_widget : public Gtk::DrawingArea
 	Gdk::Color top_colour;
 	Gdk::Color bottom_colour;
     
-    filter_widget();
-    ~filter_widget();
-    void set_value(float);
+    preset_save();
+    ~preset_save();
+    void position_top(bool);
     int pos_mode;
 
-    void set_label(string);
+    void set_text(string);
+    void set_value(int);
 
     int port_number;
-    float val_cutoff;
-    float val_res;
-    int val;
 
   protected:
 
-
-	string label;    
+	int val;
+	string text;   
+	stringstream text_stream; 
+    	float grad_top_colour;
+    	float grad_bottom_colour;
 
 	virtual bool on_expose_event(GdkEventExpose*);
 	virtual bool on_button_press_event(GdkEventButton*);
 	virtual bool on_button_release_event(GdkEventButton*);
+	virtual bool on_key_press_event(GdkEventKey* eventData); 
 };
 
 #endif

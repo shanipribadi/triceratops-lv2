@@ -11,28 +11,28 @@ adsr_lfo_gui::adsr_lfo_gui(int port_number,string top_colour, string bottom_colo
 	gui_attack = new fader();
 	gui_attack->top_colour.set(top_colour);
 	gui_attack->bottom_colour.set(bottom_colour);
-	gui_attack->set_label("ATTACK");
+	gui_attack->set_label("Attack");
 	gui_attack->port_number = port_number;
 	++port_number;
 
 	gui_decay = new fader();
 	gui_decay ->top_colour.set(top_colour);
 	gui_decay ->bottom_colour.set(bottom_colour);
-	gui_decay->set_label("DECAY");
+	gui_decay->set_label("Decay");
 	gui_decay->port_number = port_number;
 	++port_number;
 
 	gui_sustain = new fader();
 	gui_sustain->top_colour.set(top_colour);
 	gui_sustain->bottom_colour.set(bottom_colour);
-	gui_sustain->set_label("SUSTAIN");
+	gui_sustain->set_label("Sustain");
 	gui_sustain->port_number = port_number;
 	++port_number;
 
 	gui_release = new fader();
 	gui_release ->top_colour.set(top_colour);
 	gui_release ->bottom_colour.set(bottom_colour);
-	gui_release->set_label("RELEASE");
+	gui_release->set_label("Release");
 	gui_release->port_number = port_number;
 	++port_number;
 
@@ -63,7 +63,7 @@ adsr_lfo_gui::adsr_lfo_gui(int port_number,string top_colour, string bottom_colo
 	gui_route1 = new fader();
 	gui_route1->top_colour.set(top_colour);
 	gui_route1->bottom_colour.set(bottom_colour);
-	gui_route1->set_label("ROUTE 1");
+	gui_route1->set_label("Route 1");
 	gui_route1->port_number = port_number;
 	++port_number;
 	gui_route1->route_port_number = port_number;
@@ -72,7 +72,7 @@ adsr_lfo_gui::adsr_lfo_gui(int port_number,string top_colour, string bottom_colo
 	gui_route2 = new fader();
 	gui_route2->top_colour.set(top_colour);
 	gui_route2->bottom_colour.set(bottom_colour);
-	gui_route2->set_label("ROUTE 2");
+	gui_route2->set_label("Route 2");
 	gui_route2->port_number = port_number;
 	++port_number;
 	gui_route2->route_port_number = port_number;
@@ -84,6 +84,14 @@ adsr_lfo_gui::adsr_lfo_gui(int port_number,string top_colour, string bottom_colo
 	tab->add(*gui_decay);
 	tab->add(*gui_sustain);
 	tab->add(*gui_release);
+
+	spacer* spacer3 = new spacer();
+	spacer3->top_colour.set(top_colour);
+	spacer3->bottom_colour.set(bottom_colour);
+	spacer3->set_size_request(100,70);
+	spacer3->pos_mode = 0;
+
+	tab->add(*spacer3);
 
 	Gtk::VBox* vbox1 = new Gtk::VBox();
 	vbox1->add(*gui_lfo1);
@@ -101,8 +109,11 @@ adsr_lfo_gui::adsr_lfo_gui(int port_number,string top_colour, string bottom_colo
 	vbox2->add(*spacer2);
 	tab->add(*vbox2);
 
-	tab->add(*gui_route1);
-	tab->add(*gui_route2);
+
+
+
+	// tab->add(*gui_route1); // WILL IMPLEMENT THESE LATER
+	// ab->add(*gui_route2);
 
 	
 }

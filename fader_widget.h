@@ -49,10 +49,12 @@ class fader : public Gtk::DrawingArea
     bool filter_widget_connect;
     filter_widget* filter_widget_object;
 
+    float fader_value,value,min,max;
+
   protected:
 
 	// stores frequency we're currently at.
-	float fader_value,value,min,max;
+
 	bool drag;
 	bool snap;
 	int rounded;
