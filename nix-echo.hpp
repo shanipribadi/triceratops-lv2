@@ -18,6 +18,7 @@ public:
 	int echo_speed;
 	double echo_decay;
 	EQSTATE* eq;
+	EQSTATE* eq2;
 
 	double feedback_left,feedback_right;
 

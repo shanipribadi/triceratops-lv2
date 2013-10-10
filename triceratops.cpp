@@ -249,6 +249,9 @@ run(LV2_Handle instance, uint32_t n_samples)
 		self->echo->eq->lg = self->synths[0]->synth_params->TRICERATOPS_FX_ECHO_EQ_LOW[0];
 		self->echo->eq->mg = self->synths[0]->synth_params->TRICERATOPS_FX_ECHO_EQ_MID[0];
 		self->echo->eq->hg = self->synths[0]->synth_params->TRICERATOPS_FX_ECHO_EQ_HIGH[0];
+		self->echo->eq2->lg = self->synths[0]->synth_params->TRICERATOPS_FX_ECHO_EQ_LOW[0];
+		self->echo->eq2->mg = self->synths[0]->synth_params->TRICERATOPS_FX_ECHO_EQ_MID[0];
+		self->echo->eq2->hg = self->synths[0]->synth_params->TRICERATOPS_FX_ECHO_EQ_HIGH[0];
 
 		self->echo->echo_decay = self->synths[0]->synth_params->TRICERATOPS_FX_ECHO_DECAY[0];
 		self->echo->echo_speed = self->synths[0]->synth_params->TRICERATOPS_FX_ECHO_SPEED[0];

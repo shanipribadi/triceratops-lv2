@@ -24,6 +24,7 @@ nixecho::nixecho()
 	delay_right = stereo_width;
 
 	eq = new EQSTATE();
+	eq2 = new EQSTATE();
 }
 
 //------------------------------------------------------------------------------------
@@ -51,6 +52,10 @@ void nixecho::set_sample_rate(double s_rate)
 	eq->lg = 0.0; // BASS
 	eq->mg = 1.2; // MIDS
 	eq->hg = 0.0; // HIGHS 
+	init_3band_state(eq2,880,5000,s_rate);		
+	eq2->lg = 0.0; // BASS
+	eq2->mg = 1.2; // MIDS
+	eq2->hg = 0.0; // HIGHS 
 }
 
 //------------------------------------------------------------------------------------
@@ -72,7 +77,7 @@ void nixecho::reset()
 double nixecho::do_left(double in)
 {
 
-	if (std::isnan(in)) {in=0; feedback_left = 0; }
+	if (std::isnan(in) || in < -0.9 || in > 0.9) {return 0; }
 
 	buffer_left[play_head] = feedback_left;
 
@@ -93,14 +98,14 @@ double nixecho::do_left(double in)
 
 double nixecho::do_right(double in)
 {
-	if (std::isnan(in)) {in=0; feedback_right = 0; }
+	if (std::isnan(in) || in < -0.9 || in > 0.9) {return 0; }
 
 	buffer_right[play_head] = feedback_right;
 
 	delay_right++;
 	if (delay_right >= echo_speed) {delay_right = 0; }
 
-	feedback_right = in + do_3band(eq, buffer_right[delay_right] * echo_decay);
+	feedback_right = in + do_3band(eq2, buffer_right[delay_right] * echo_decay);
 
 	return feedback_right;
 
